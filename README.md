@@ -1,4 +1,4 @@
-# [gulp](http://gulpjs.com)-trans [![Build Status](https://travis-ci.org/i5ting/gulp-trans.svg?branch=master)](https://travis-ci.org/i5ting/gulp-trans)
+# [gulp](http://gulpjs.com)-trans v1.0.1 [![Build Status](https://travis-ci.org/i5ting/gulp-trans.svg?branch=master)](https://travis-ci.org/i5ting/gulp-trans)
 
 
 ![](preview.png)
