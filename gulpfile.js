@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var trans = require('./');
 
-
 gulp.task('default', function() {
 	gulp.src('data/src/*.md')
 		.pipe(trans())

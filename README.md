@@ -1,14 +1,11 @@
-# [gulp](http://gulpjs.com)-markdown [![Build Status](https://travis-ci.org/sindresorhus/gulp-markdown.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-markdown)
+# [gulp](http://gulpjs.com)-trans [![Build Status](https://travis-ci.org/i5ting/gulp-trans.svg?branch=master)](https://travis-ci.org/i5ting/gulp-trans)
 
-> Markdown to HTML with [marked](https://github.com/chjj/marked)
-
-*Issues with the output should be reported on the marked [issue tracker](https://github.com/chjj/marked/issues).*
-
+ 
 
 ## Install
 
 ```sh
-$ npm install --save-dev gulp-markdown
+$ npm install --save-dev gulp-trans
 ```
 
 
@@ -16,13 +13,17 @@ $ npm install --save-dev gulp-markdown
 
 ```js
 var gulp = require('gulp');
-var markdown = require('gulp-markdown');
+var trans = require('gulp-trans');
 
-gulp.task('default', function () {
-	return gulp.src('intro.md')
-		.pipe(markdown())
-		.pipe(gulp.dest('dist'));
+gulp.task('default', function() {
+	gulp.src('data/src/*.md')
+		.pipe(trans())
+		.pipe(gulp.dest('data/dist'));
+		 
+		var open = require("open");
+		open("./data/dist/sample.html");
 });
+
 ```
 
 ## resource
@@ -32,11 +33,11 @@ http://www.infoq.com/cn/articles/nodejs-about-buffer
 
 ## API
 
-### markdown(options)
+### trans(options)
 
 See the marked [options](https://github.com/chjj/marked#options-1).
 
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Alfred Sang](http://no320.com)
