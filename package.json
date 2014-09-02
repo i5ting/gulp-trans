@@ -27,12 +27,17 @@
     "convert",
     "markup",
     "html",
-		"trans",
-		"toc"
+    "trans",
+    "toc"
   ],
   "dependencies": {
+    "art-template": "^3.0.3",
+    "bufferhelper": "^0.2.0",
+    "gulp": "^3.8.7",
     "gulp-util": "^3.0.0",
+    "handlebars": "^2.0.0",
     "marked": "^0.3.2",
+    "open": "0.0.5",
     "through2": "^0.6.1"
   },
   "devDependencies": {

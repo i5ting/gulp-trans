@@ -25,6 +25,10 @@ gulp.task('default', function () {
 });
 ```
 
+## resource
+
+http://www.infoq.com/cn/articles/nodejs-about-buffer
+
 
 ## API
 
