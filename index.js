@@ -1,7 +1,7 @@
 'use strict';
 var gutil = require('gulp-util');
 var through = require('through2');
-var marked = require('marked');
+var marked = require('gulp-markdown-livereload');
 var fs = require('fs');
 var BufferHelper = require('bufferhelper');
 
@@ -20,24 +20,16 @@ module.exports = function (options) {
 			return;
 		}
 		
-		
-		var rs = fs.createReadStream('res/t.html', {encoding: 'utf-8', bufferSize: 11}); 
+		var rs = fs.createReadStream('res/template.html', {encoding: 'utf-8', bufferSize: 11}); 
 		var bufferHelper = new BufferHelper();
 
 		rs.on("data", function (trunk){
-		    // data += trunk;
 				bufferHelper.concat(trunk);
 		});
+		
 		rs.on("end", function () {
 			var source = bufferHelper.toBuffer().toString();
-	    // console.log(html); 
-
 			var template = Handlebars.compile(source);
-			
-		
-			//
-			
-			// console.log(result);
 			
 			marked(file.contents.toString(), options, function (err, data) {
 				if (err) {
@@ -55,7 +47,6 @@ module.exports = function (options) {
 					"parse_markdown": data
 				};
 			
-				
 				file.contents = new Buffer( template(data1) );
 				file.path = gutil.replaceExtension(file.path, '.html');
 

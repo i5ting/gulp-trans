@@ -17,7 +17,7 @@
   },
   "files": [
     "index.js",
-		"res/t.html"
+    "res/t.html"
   ],
   "keywords": [
     "gulpplugin",
@@ -35,6 +35,7 @@
     "art-template": "^3.0.3",
     "bufferhelper": "^0.2.0",
     "gulp": "^3.8.7",
+    "gulp-markdown-livereload": "^1.0.0",
     "gulp-util": "^3.0.0",
     "handlebars": "^2.0.0",
     "marked": "^0.3.2",
