@@ -1,7 +1,7 @@
 'use strict';
 var gutil = require('gulp-util');
 var through = require('through2');
-var marked = require('gulp-markdown-livereload');
+var assign = require('object-assign');
 var fs = require('fs');
 var BufferHelper = require('bufferhelper');
 
@@ -9,6 +9,26 @@ var Handlebars = require('handlebars');
 
 
 module.exports = function (options) {
+	
+	options = assign({}, options);
+
+	// if (options.host === undefined) {
+	// 	throw new gutil.PluginError('gulp-ftp', '`host` required');
+	// }
+	
+	var markdown_livereload = options.markdown_livereload || true;
+	console.log('markdown_livereload='+markdown_livereload);
+	// var marked;
+	//
+	// if (markdown_livereload === true) {
+	//
+	// }
+
+	
+	// else{
+// 		marked = require('gulp-markd');
+// 	}
+//
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull()) {
 			cb(null, file);
@@ -16,7 +36,7 @@ module.exports = function (options) {
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError('gulp-markdown', 'Streaming not supported'));
+			cb(new gutil.PluginError('gulp-trans', 'Streaming not supported'));
 			return;
 		}
 		
@@ -31,15 +51,15 @@ module.exports = function (options) {
 			var source = bufferHelper.toBuffer().toString();
 			var template = Handlebars.compile(source);
 			
+			// console.log(source);
+			
+			var	marked = require('marked');	
+			// marked = require('gulp-markdown-livereload');
 			marked(file.contents.toString(), options, function (err, data) {
 				if (err) {
 					cb(new gutil.PluginError('gulp-markdown', err, {fileName: file.path}));
 					return;
 				}
-			
-				console.log(data);
-				var m_h = new Buffer(data);
-			
 			
 				var css_link = "ddsds";
 				var data1 = {
