@@ -41,6 +41,8 @@ http://www.infoq.com/cn/articles/nodejs-about-buffer
 
 ## API
 
+todo
+
 ### trans(options)
 
 See the marked [options](https://github.com/chjj/marked#options-1).
