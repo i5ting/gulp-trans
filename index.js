@@ -3,6 +3,7 @@ var gutil = require('gulp-util');
 var through = require('through2');
 var assign = require('object-assign');
 var fs = require('fs');
+var path = require('path');
 var BufferHelper = require('bufferhelper');
 
 var Handlebars = require('handlebars');
@@ -40,7 +41,7 @@ module.exports = function (options) {
 			return;
 		}
 		
-		var rs = fs.createReadStream('res/template.html', {encoding: 'utf-8', bufferSize: 11}); 
+		var rs = fs.createReadStream(path.join(__dirname, 'res/template.html'), { encoding: 'utf-8', bufferSize: 11 });
 		var bufferHelper = new BufferHelper();
 
 		rs.on("data", function (trunk){
