@@ -41,17 +41,17 @@ module.exports = function (options) {
 		}
 		
 		var rs = fs.createReadStream('res/template.html', {encoding: 'utf-8', bufferSize: 11}); 
-		var bufferHelper = new BufferHelper();
 
+    var c = []
 		rs.on("data", function (trunk){
-				bufferHelper.concat(trunk);
+        c.push(trunk)
 		});
 		
 		rs.on("end", function () {
-			var source = bufferHelper.toBuffer().toString();
+			var source = c.join('').toString();
 			var template = Handlebars.compile(source);
 			
-			// console.log(source);
+      // console.log(c);
 			
 			var	marked = require('marked');	
 			// marked = require('gulp-markdown-livereload');
